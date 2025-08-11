@@ -1,0 +1,87 @@
+.tracker-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #222831;
+  border-radius: 10px;
+  color: #f5f5f5;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.add-row {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.add-row input {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #393e46;
+  background: #393e46;
+  color: #f5f5f5;
+}
+
+.add-row button {
+  padding: 6px 16px;
+  border-radius: 4px;
+  border: none;
+  background: #00adb5;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.add-row button:hover {
+  background: #00969b;
+}
+
+.reset-button {
+  background: #ff6b6b !important;
+}
+.reset-button:hover {
+  background: #ff5252 !important;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.raid-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #222831;
+}
+
+.raid-table th,
+.raid-table td {
+  border: 1px solid #393e46;
+  padding: 8px 6px;
+  text-align: center;
+}
+
+.raid-table th {
+  background: #393e46;
+  font-weight: bold;
+}
+
+.cell-input {
+  width: 90%;
+  padding: 4px 6px;
+  border-radius: 3px;
+  border: 1px solid #393e46;
+  background: #393e46;
+  color: #f5f5f5;
+}
+
+.checkbox-cell {
+  width: 36px;
+}
