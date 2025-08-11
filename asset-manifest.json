@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.c90948f2.css",
-    "main.js": "/static/js/main.b05692c4.js",
-    "static/js/453.ea5fb4fe.chunk.js": "/static/js/453.ea5fb4fe.chunk.js",
-    "index.html": "/index.html",
-    "main.c90948f2.css.map": "/static/css/main.c90948f2.css.map",
-    "main.b05692c4.js.map": "/static/js/main.b05692c4.js.map",
-    "453.ea5fb4fe.chunk.js.map": "/static/js/453.ea5fb4fe.chunk.js.map"
+    "main.css": "/raidtracker/static/css/main.c90948f2.css",
+    "main.js": "/raidtracker/static/js/main.5ce3e616.js",
+    "static/js/453.ea5fb4fe.chunk.js": "/raidtracker/static/js/453.ea5fb4fe.chunk.js",
+    "index.html": "/raidtracker/index.html",
+    "main.c90948f2.css.map": "/raidtracker/static/css/main.c90948f2.css.map",
+    "main.5ce3e616.js.map": "/raidtracker/static/js/main.5ce3e616.js.map",
+    "453.ea5fb4fe.chunk.js.map": "/raidtracker/static/js/453.ea5fb4fe.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c90948f2.css",
-    "static/js/main.b05692c4.js"
+    "static/js/main.5ce3e616.js"
   ]
 }
