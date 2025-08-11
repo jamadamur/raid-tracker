@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/raid-tracker/static/css/main.c90948f2.css",
-    "main.js": "/raid-tracker/static/js/main.190c6b75.js",
+    "main.js": "/raid-tracker/static/js/main.ff51ef22.js",
     "static/js/453.ea5fb4fe.chunk.js": "/raid-tracker/static/js/453.ea5fb4fe.chunk.js",
     "index.html": "/raid-tracker/index.html",
     "main.c90948f2.css.map": "/raid-tracker/static/css/main.c90948f2.css.map",
-    "main.190c6b75.js.map": "/raid-tracker/static/js/main.190c6b75.js.map",
+    "main.ff51ef22.js.map": "/raid-tracker/static/js/main.ff51ef22.js.map",
     "453.ea5fb4fe.chunk.js.map": "/raid-tracker/static/js/453.ea5fb4fe.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c90948f2.css",
-    "static/js/main.190c6b75.js"
+    "static/js/main.ff51ef22.js"
   ]
 }
