@@ -9,6 +9,7 @@ const RAID_LIST = [
   { key: "Naxx", label: "Naxx" },
   { key: "Ulduar", label: "Ulduar" },
 ];
+
 const DIFFICULTIES = ["10", "25"];
 
 interface Character {
@@ -24,10 +25,36 @@ function getInitialCharacters(): Character[] {
   const data = localStorage.getItem(LOCAL_STORAGE_KEY);
   if (!data) return [];
   try {
-    return JSON.parse(data);
+    const characters = JSON.parse(data);
+    // Migrate characters to include any new raids
+    return characters.map((char: Character) => migrateCharacter(char));
   } catch {
     return [];
   }
+}
+
+// Migrate character data to include all current raids
+function migrateCharacter(char: Character): Character {
+  const migratedRaids: Record<string, Record<"10" | "25", boolean>> = {};
+
+  // Initialize all raids from current RAID_LIST
+  RAID_LIST.forEach((raid) => {
+    // If character has this raid data, use it; otherwise default to unchecked
+    if (char.raids && char.raids[raid.key]) {
+      migratedRaids[raid.key] = {
+        "10": char.raids[raid.key]["10"] || false,
+        "25": char.raids[raid.key]["25"] || false,
+      };
+    } else {
+      // New raid - default to unchecked
+      migratedRaids[raid.key] = { "10": false, "25": false };
+    }
+  });
+
+  return {
+    ...char,
+    raids: migratedRaids,
+  };
 }
 
 // Get the most recent Wednesday 6 AM CEST
@@ -200,7 +227,9 @@ function App() {
                     <td key={raid.key + diff} className="checkbox-cell">
                       <input
                         type="checkbox"
-                        checked={char.raids[raid.key][diff as "10" | "25"]}
+                        checked={
+                          char.raids[raid.key]?.[diff as "10" | "25"] || false
+                        }
                         onChange={() =>
                           toggleRaid(idx, raid.key, diff as "10" | "25")
                         }
