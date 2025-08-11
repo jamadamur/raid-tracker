@@ -1,7 +1,7 @@
 {
   "name": "raidtracker",
   "version": "0.1.0",
-  "homepage": "https://jamadamur.github.io/raidtracker",
+  "homepage": "https://jamadamur.github.io/raid-tracker",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
