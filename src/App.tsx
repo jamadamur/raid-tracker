@@ -6,6 +6,8 @@ const RAID_LIST = [
   { key: "RS", label: "RS" },
   { key: "ICC", label: "ICC" },
   { key: "TOC", label: "TOC" },
+  { key: "Naxx", label: "Naxx" },
+  { key: "Ulduar", label: "Ulduar" },
 ];
 const DIFFICULTIES = ["10", "25"];
 
