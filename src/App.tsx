@@ -16,6 +16,7 @@ interface Character {
 }
 
 const LOCAL_STORAGE_KEY = "raidtracker-characters";
+const LAST_VISIT_KEY = "raidtracker-last-visit";
 
 function getInitialCharacters(): Character[] {
   const data = localStorage.getItem(LOCAL_STORAGE_KEY);
@@ -27,6 +28,37 @@ function getInitialCharacters(): Character[] {
   }
 }
 
+// Get the most recent Wednesday 6 AM CEST
+function getLastWednesday6AM(): Date {
+  const now = new Date();
+  const currentDay = now.getDay(); // 0 = Sunday, 3 = Wednesday
+  const daysSinceWednesday = (currentDay + 4) % 7; // Days since last Wednesday
+
+  const lastWednesday = new Date(now);
+  lastWednesday.setDate(now.getDate() - daysSinceWednesday);
+  lastWednesday.setHours(6, 0, 0, 0); // 6 AM
+
+  // Adjust for CEST (UTC+2) - convert to UTC
+  lastWednesday.setHours(lastWednesday.getHours() - 2);
+
+  return lastWednesday;
+}
+
+// Check if automatic reset should be triggered
+function shouldAutoReset(): boolean {
+  const lastVisitStr = localStorage.getItem(LAST_VISIT_KEY);
+  if (!lastVisitStr) return false;
+
+  try {
+    const lastVisit = new Date(parseInt(lastVisitStr));
+    const lastWednesday6AM = getLastWednesday6AM();
+
+    return lastVisit < lastWednesday6AM;
+  } catch {
+    return false;
+  }
+}
+
 function App() {
   const [characters, setCharacters] =
     useState<Character[]>(getInitialCharacters);
@@ -35,6 +67,15 @@ function App() {
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(characters));
   }, [characters]);
+
+  // Check for automatic reset on component mount
+  useEffect(() => {
+    if (shouldAutoReset()) {
+      resetAllRaids();
+    }
+    // Update last visit timestamp
+    localStorage.setItem(LAST_VISIT_KEY, Date.now().toString());
+  }, []);
 
   const addCharacter = () => {
     if (!newName.trim()) return;
